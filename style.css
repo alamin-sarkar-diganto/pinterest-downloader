@@ -1,0 +1,239 @@
+:root {
+    --bg-black: #050505;
+    --neon-blue: #00f3ff;
+    --neon-purple: #bc13fe;
+    --hot-pink: #ff0055;
+    --electric-cyan: #0ff;
+    --glass: rgba(255, 255, 255, 0.03);
+    --border-glass: rgba(255, 255, 255, 0.1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    cursor: none; /* Custom cursor implementation */
+}
+
+body {
+    background: var(--bg-black);
+    color: white;
+    font-family: 'Rajdhani', sans-serif;
+    overflow-x: hidden;
+    min-height: 100vh;
+}
+
+/* Neural Network Background Canvas */
+#neural-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    opacity: 0.6;
+}
+
+.scanlines {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), 
+                linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+    background-size: 100% 2px, 3px 100%;
+    pointer-events: none;
+    z-index: 100;
+}
+
+/* Custom Cursor */
+.cursor-glow {
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(0, 243, 255, 0.15) 0%, transparent 70%);
+    position: fixed;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    z-index: 99;
+}
+
+/* Typography & Title */
+.app-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 100px 20px;
+    text-align: center;
+}
+
+.glitch-text {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 4rem;
+    font-weight: 900;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    position: relative;
+    color: var(--neon-blue);
+    text-shadow: 0 0 15px rgba(0, 243, 255, 0.7);
+    margin-bottom: 10px;
+}
+
+.sub-text {
+    font-size: 1.2rem;
+    letter-spacing: 3px;
+    color: var(--neon-purple);
+    margin-bottom: 50px;
+    text-transform: uppercase;
+}
+
+/* Glassmorphism Panel */
+.glass-panel {
+    background: var(--glass);
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--border-glass);
+    border-radius: 15px;
+    padding: 40px;
+    box-shadow: 0 0 40px rgba(0, 0, 0, 0.5), inset 0 0 20px rgba(255, 255, 255, 0.02);
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.main-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--neon-blue);
+}
+
+/* Input Styles */
+.input-wrapper {
+    position: relative;
+    margin-bottom: 30px;
+}
+
+input {
+    width: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    border: 1px solid var(--neon-purple);
+    padding: 20px;
+    color: white;
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 1.1rem;
+    border-radius: 5px;
+    outline: none;
+    transition: 0.3s;
+}
+
+input:focus {
+    border-color: var(--neon-blue);
+    box-shadow: 0 0 20px rgba(0, 243, 255, 0.3);
+}
+
+/* Button UI */
+.magical-btn {
+    width: 100%;
+    padding: 20px;
+    background: linear-gradient(45deg, var(--neon-blue), var(--neon-purple));
+    border: none;
+    color: white;
+    font-family: 'Orbitron', sans-serif;
+    font-weight: bold;
+    font-size: 1.2rem;
+    border-radius: 5px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: 0.3s;
+    text-shadow: 0 0 5px black;
+}
+
+.magical-btn:hover {
+    transform: scale(1.02);
+    box-shadow: 0 0 30px var(--neon-blue);
+}
+
+/* Result UI */
+.hidden { display: none; }
+
+.result-card {
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.preview-container {
+    width: 100%;
+    height: 300px;
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+}
+
+.preview-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.media-type-badge {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: var(--hot-pink);
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+
+.download-link {
+    display: block;
+    margin-top: 20px;
+    padding: 15px;
+    background: transparent;
+    border: 1px solid var(--neon-blue);
+    color: var(--neon-blue);
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.download-link:hover {
+    background: var(--neon-blue);
+    color: black;
+}
+
+/* Loader */
+.hologram-ring {
+    width: 60px;
+    height: 60px;
+    border: 3px solid transparent;
+    border-top: 3px solid var(--neon-blue);
+    border-right: 3px solid var(--neon-blue);
+    border-radius: 50%;
+    margin: 20px auto;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin { 100% { transform: rotate(360deg); } }
+
+/* Footer */
+footer {
+    margin-top: 80px;
+}
+
+.neon-name {
+    color: var(--neon-blue);
+    text-shadow: 0 0 10px var(--neon-blue);
+    font-weight: bold;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+}
+
+@media (max-width: 600px) {
+    .glitch-text { font-size: 2rem; }
+}
