@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PINTEREST DOWNLOADER | CYBER-X</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <canvas id="neural-canvas"></canvas>
+    <div class="scanlines"></div>
+    <div class="cursor-glow" id="cursor-glow"></div>
+
+    <main class="app-container">
+        <header>
+            <h1 class="glitch-text" data-text="PINTEREST DOWNLOADER">PINTEREST DOWNLOADER</h1>
+            <p class="sub-text">Neural-Link Active: Download Photos & Videos Instantly</p>
+        </header>
+
+        <section class="glass-panel main-card">
+            <div class="input-wrapper">
+                <input type="text" id="url-input" placeholder="PASTE PINTEREST URL HERE..." autocomplete="off">
+                <div class="input-glow"></div>
+            </div>
+            
+            <button id="download-btn" class="magical-btn">
+                <span class="btn-text">INITIALIZE EXTRACTION</span>
+                <div class="btn-glitch"></div>
+            </button>
+        </section>
+
+        <section id="status-area" class="hidden">
+            <div class="loader-container">
+                <div class="hologram-ring"></div>
+                <p class="loading-msg">DECRYPTING DATA...</p>
+                <div class="progress-bar-wrap">
+                    <div class="progress-bar-fill"></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="result-area" class="hidden">
+            <div class="glass-panel result-card">
+                <div class="preview-container">
+                    <img id="preview-img" src="" alt="Preview">
+                    <div class="media-type-badge" id="media-type">IMAGE</div>
+                </div>
+                <div class="info-panel">
+                    <h3>EXTRACTION COMPLETE</h3>
+                    <p id="res-detail">Resolution: 1080x1920</p>
+                    <a id="final-download" href="#" target="_blank" download class="download-link">DOWNLOAD SOURCE</a>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <p class="footer-text">DESIGNED BY <span class="neon-name">DEVELOPER X AL-AMIN</span></p>
+        </footer>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
